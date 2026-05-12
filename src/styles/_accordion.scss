@@ -1,0 +1,27 @@
+@use './variables' as *;
+
+.accordion {
+  &__title-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__title-icon {
+    display: flex;
+    justify-content: flex-end;
+    transform: rotate(90deg);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 16px;
+  }
+}

@@ -1,0 +1,49 @@
+@use '../../styles/variables' as *;
+
+.carousel {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 50px;
+
+  &__track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  &__slide {
+    width: calc(50% - 20px);
+    margin: 0 10px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $accent;
+  }
+
+  &__btn--prev {
+    left: 30px;
+  }
+  &__btn--next {
+    right: 30px;
+  }
+
+  &__btn-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__btn--prev-icon {
+    transform: rotate(180deg);
+  }
+}

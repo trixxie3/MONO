@@ -1,0 +1,33 @@
+.header {
+  margin-bottom: 17px;
+
+  &__content {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 17px 0;
+  }
+
+  &__logo {
+    width: 180px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__btn-icon {
+    width: 28px;
+    height: 28px;
+  }
+}

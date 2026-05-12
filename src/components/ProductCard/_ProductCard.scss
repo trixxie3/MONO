@@ -1,0 +1,65 @@
+@use '../../styles/variables' as *;
+
+.product-card {
+  width: 170px;
+  position: relative;
+
+  &__favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__favorite-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__image {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: $accent;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__price {
+    font-size: 16px;
+    font-weight: 600;
+    color: $accent;
+  }
+
+  &__btn {
+    width: 40px;
+    height: 40px;
+    background-color: $accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  &__btn-icon {
+    width: 30px;
+    height: 30px;
+  }
+}

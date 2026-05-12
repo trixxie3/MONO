@@ -1,0 +1,15 @@
+.burger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}

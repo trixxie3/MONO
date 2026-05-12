@@ -1,0 +1,39 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  &__content {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 34px 0;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__phone-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__phone {
+    font-size: 18px;
+    color: $accent;
+  }
+
+  &__phone--left {
+    border-right: $accent 1px solid;
+    padding-right: 10px;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,24 @@
+@use '../../styles/variables' as *;
+
+.about-store {
+  margin-bottom: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__text {
+    width: 752px;
+    text-align: center;
+  }
+
+  &__link {
+    color: $accent;
+    text-decoration: underline;
+  }
+}
