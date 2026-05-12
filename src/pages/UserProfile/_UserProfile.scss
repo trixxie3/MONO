@@ -1,0 +1,38 @@
+@use '../../styles/variables' as *;
+
+.profile {
+  &__content {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 32px;
+  }
+
+  &__aside {
+    border: 1px solid black;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  &__link.active {
+    background-color: $accent;
+    color: white;
+  }
+
+  &__main {
+    min-width: 0;
+  }
+}
