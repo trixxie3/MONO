@@ -31,7 +31,7 @@ export default function UserProfile({ user, onLogout }) {
               <li className="profile__item">
                 <button
                   onClick={onLogout}
-                  className="profile__link"
+                  className="profile__link profile__link--logout"
                   type="button"
                 >
                   Выйти

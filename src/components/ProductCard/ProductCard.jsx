@@ -5,13 +5,6 @@ import FavoriteIcon from '../../assets/svg/favorite.svg';
 export default function ProductCard({ product }) {
   return (
     <div className="product-card">
-      <button className="product-card__favorite" type="button">
-        <img
-          className="product-card__favorite-icon"
-          src={FavoriteIcon}
-          alt="избранное"
-        />
-      </button>
       <Link className="product-card__image-link" to={`/product/${product.id}`}>
         <img
           className="product-card__image"

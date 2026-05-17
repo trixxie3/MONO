@@ -8,21 +8,66 @@ import arrow from '../../assets/svg/arrow.svg';
 
 export default function Carousel() {
   const slides = [slide1, slide2, slide3, slide4];
-  const [index, setIndex] = useState(0);
-
   const slidesToShow = 2;
-  const next = () => setIndex((i) => (i + 1) % slides.length);
-  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
+  const totalSlides = slides.length;
+  const [currentIndex, setCurrentIndex] = useState(slidesToShow);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const extendedSlides = [
+    ...slides.slice(-slidesToShow),
+    ...slides,
+    ...slides.slice(0, slidesToShow),
+  ];
+
+  const trackStyle = {
+    transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)`,
+    transition: isTransitionEnabled ? 'transform 0.5s ease' : 'none',
+  };
+
+  const handleTransitionEnd = () => {
+    setIsAnimating(false);
+
+    if (currentIndex >= totalSlides + slidesToShow) {
+      setIsTransitionEnabled(false);
+      setCurrentIndex(slidesToShow);
+      return;
+    }
+
+    if (currentIndex < slidesToShow) {
+      setIsTransitionEnabled(false);
+      setCurrentIndex(totalSlides + currentIndex);
+    }
+  };
+
+  const next = () => {
+    if (isAnimating) {
+      return;
+    }
+
+    setIsTransitionEnabled(true);
+    setIsAnimating(true);
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const prev = () => {
+    if (isAnimating) {
+      return;
+    }
+
+    setIsTransitionEnabled(true);
+    setIsAnimating(true);
+    setCurrentIndex((prev) => prev - 1);
+  };
 
   return (
     <section className="carousel">
       <div
         className="carousel__track"
-        style={{
-          transform: `translateX(-${(index * 100) / slidesToShow}%)`,
-        }}
+        style={trackStyle}
+        onTransitionEnd={handleTransitionEnd}
       >
-        {slides.map((img, i) => (
+        {extendedSlides.map((img, i) => (
           <img
             key={i}
             src={img}
