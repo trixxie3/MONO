@@ -13,7 +13,7 @@
   }
 
   &__text {
-    width: 752px;
+    width: min(752px, calc(100% - 32px));
     text-align: center;
   }
 

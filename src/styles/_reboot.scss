@@ -11,11 +11,16 @@ body,
     min-height: 100%;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
     color: $accent;
+    overflow-x: hidden;
 }
 
 .app {
@@ -59,6 +64,17 @@ button {
     padding: 0;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+textarea,
+button {
+    font: inherit;
+}
+
 summary {
     list-style: none;
 }
@@ -71,4 +87,16 @@ summary::-webkit-details-marker {
     max-width: 1528px;
     margin: 0 auto;
     padding: 0 60px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 0 32px;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        padding: 0 16px;
+    }
 }

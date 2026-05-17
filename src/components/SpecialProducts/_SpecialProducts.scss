@@ -26,8 +26,8 @@
   }
 
   &__list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 40px 24px;
     margin: 0 auto;
     margin-bottom: 40px;
@@ -47,5 +47,22 @@
 
   &__more-icon {
     transform: translateY(2px);
+  }
+
+  @media (max-width: 560px) {
+    &__variant-buttons {
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    &__variant {
+      font-size: 18px;
+    }
+
+    &__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 16px;
+    }
   }
 }

@@ -51,4 +51,25 @@
     font-size: 13px;
     font-weight: 700;
   }
+
+  @media (max-width: 560px) {
+    margin-bottom: 12px;
+
+    &__content {
+      padding: 12px 0;
+    }
+
+    &__logo {
+      width: 132px;
+    }
+
+    &__buttons {
+      gap: 12px;
+    }
+
+    &__btn-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }

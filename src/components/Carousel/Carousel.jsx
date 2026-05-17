@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './_Carousel.scss';
 import slide1 from '../../assets/images/slide1.webp';
 import slide2 from '../../assets/images/slide2.webp';
@@ -8,7 +8,9 @@ import arrow from '../../assets/svg/arrow.svg';
 
 export default function Carousel() {
   const slides = [slide1, slide2, slide3, slide4];
-  const slidesToShow = 2;
+  const [slidesToShow, setSlidesToShow] = useState(() =>
+    window.matchMedia('(max-width: 760px)').matches ? 1 : 2,
+  );
   const totalSlides = slides.length;
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
@@ -19,6 +21,25 @@ export default function Carousel() {
     ...slides,
     ...slides.slice(0, slidesToShow),
   ];
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 760px)');
+
+    const updateSlidesToShow = () => {
+      const nextSlidesToShow = mediaQuery.matches ? 1 : 2;
+
+      setSlidesToShow(nextSlidesToShow);
+      setCurrentIndex(nextSlidesToShow);
+      setIsTransitionEnabled(false);
+      setIsAnimating(false);
+    };
+
+    mediaQuery.addEventListener('change', updateSlidesToShow);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateSlidesToShow);
+    };
+  }, []);
 
   const trackStyle = {
     transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)`,

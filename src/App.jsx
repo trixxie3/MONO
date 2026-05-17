@@ -15,6 +15,12 @@ import DeliveryAddressPage from './pages/DeliveryAddressPage/DeliveryAddressPage
 import DiscountsBonusesPage from './pages/DiscountsBonusesPage/DiscountsBonusesPage';
 import ContactInfoPage from './pages/ContactInfoPage/ContactInfoPage';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
+import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
+import PaymentPage from './pages/PaymentPage/PaymentPage';
+import BlogPage from './pages/BlogPage/BlogPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+import CategoryPage from './pages/CategoryPage/CategoryPage';
+import SubCategoryPage from './pages/SubCategoryPage/SubCategoryPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(() => {
@@ -77,7 +83,14 @@ function App() {
             />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/catalog" element={<CatalogPage />} />
+            <Route path="/category" element={<CategoryPage />} />
+            <Route path="/subcategory" element={<SubCategoryPage />} />
             <Route path="/about" element={<AboutStorePage />} />
+            <Route path="/contacts" element={<ProfilePage />} />
+            <Route path="/delivery" element={<DeliveryPage />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/blog" element={<BlogPage />} />
           </Routes>
         </main>
         <Footer />

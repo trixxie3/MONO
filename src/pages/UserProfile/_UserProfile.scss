@@ -4,6 +4,7 @@
   &__content {
     display: grid;
     grid-template-columns: 260px 1fr;
+    gap: 20px;
   }
 
   &__list {
@@ -23,6 +24,18 @@
   }
 
   &__main {
-    padding-left: 20px;
+    min-width: 0;
+  }
+
+  @media (max-width: 760px) {
+    &__content {
+      grid-template-columns: 1fr;
+    }
+
+    &__list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+    }
   }
 }

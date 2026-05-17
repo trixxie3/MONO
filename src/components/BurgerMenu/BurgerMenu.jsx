@@ -6,6 +6,15 @@ export default function BurgerMenu({ isOpen, setIsBurgerOpen }) {
   return (
     <>
       <aside className={`burger-menu ${isOpen ? 'burger-menu--open' : ''}`}>
+        <button
+          className="burger-menu__close"
+          type="button"
+          onClick={() => setIsBurgerOpen(false)}
+          aria-label="Закрыть меню"
+        >
+          <span className="burger-menu__close-line"></span>
+          <span className="burger-menu__close-line"></span>
+        </button>
         <nav className="burger-menu__catalog">
           <h2 className="burger-menu__title burger-menu__title--catalog">
             Каталог

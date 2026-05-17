@@ -12,4 +12,12 @@
     font-size: 18px;
     font-weight: 600;
   }
+
+  @media (max-width: 560px) {
+    gap: 0;
+
+    &__text {
+      display: none;
+    }
+  }
 }

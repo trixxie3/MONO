@@ -5,3 +5,19 @@
 @use './accordion';
 @use './form';
 @use './navigation';
+
+.info-page {
+  padding: 20px 0 60px;
+
+  &__title {
+    margin-bottom: 18px;
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  &__text {
+    max-width: 680px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
