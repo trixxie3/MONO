@@ -5,11 +5,32 @@ import Logo from '../../assets/svg/logo.svg';
 import SearchIcon from '../../assets/svg/search.svg';
 import UserIcon from '../../assets/svg/user.svg';
 import CartIcon from '../../assets/svg/cart.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
+
+const getCartItemsCount = () => {
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+  return cartItems.reduce((sum, item) => sum + item.quantity, 0);
+};
 
 export default function Header() {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+  const [cartItemsCount, setCartItemsCount] = useState(getCartItemsCount);
+
+  useEffect(() => {
+    const updateCartItemsCount = () => {
+      setCartItemsCount(getCartItemsCount());
+    };
+
+    window.addEventListener('cart-updated', updateCartItemsCount);
+    window.addEventListener('storage', updateCartItemsCount);
+
+    return () => {
+      window.removeEventListener('cart-updated', updateCartItemsCount);
+      window.removeEventListener('storage', updateCartItemsCount);
+    };
+  }, []);
 
   return (
     <>
@@ -43,12 +64,15 @@ export default function Header() {
               <Link className="header__btn" to="/account">
                 <img className="header__btn-icon" src={UserIcon} alt="вход" />
               </Link>
-              <Link className="header__btn" to="/cart">
+              <Link className="header__btn header__btn--cart" to="/cart">
                 <img
                   className="header__btn-icon"
                   src={CartIcon}
                   alt="корзина"
                 />
+                {cartItemsCount > 0 && (
+                  <span className="header__cart-count">{cartItemsCount}</span>
+                )}
               </Link>
             </div>
           </div>

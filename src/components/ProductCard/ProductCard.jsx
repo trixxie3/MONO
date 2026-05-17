@@ -1,8 +1,26 @@
 import './_ProductCard.scss';
-import { Link } from 'react-router-dom';
-import FavoriteIcon from '../../assets/svg/favorite.svg';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const currentItem = cartItems.find((item) => item.id === product.id);
+
+    const updatedCart = currentItem
+      ? cartItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      : [...cartItems, { ...product, quantity: 1 }];
+
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    window.dispatchEvent(new Event('cart-updated'));
+    navigate('/cart');
+  };
+
   return (
     <div className="product-card">
       <Link className="product-card__image-link" to={`/product/${product.id}`}>
@@ -17,7 +35,12 @@ export default function ProductCard({ product }) {
       </Link>
       <div className="product-card__wrap">
         <p className="product-card__price">{product.price}</p>
-        <Link className="product-card__btn" to="/cart">
+        <button
+          className="product-card__btn"
+          type="button"
+          onClick={handleAddToCart}
+          aria-label="Добавить в корзину"
+        >
           <svg
             className="product-card__btn-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -31,9 +54,9 @@ export default function ProductCard({ product }) {
               r="16"
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="32"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="32"
             />
             <circle
               cx="400"
@@ -41,28 +64,28 @@ export default function ProductCard({ product }) {
               r="16"
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="32"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="32"
             />
             <path
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="32"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="32"
               d="M48 80h64l48 272h256"
             />
             <path
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="32"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="32"
               d="M160 288h249.44a8 8 0 0 0 7.85-6.43l28.8-144a8 8 0 0 0-7.85-9.57H128"
             />
           </svg>
-        </Link>
+        </button>
       </div>
     </div>
   );

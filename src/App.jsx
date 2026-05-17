@@ -14,6 +14,7 @@ import OrderHistoryPage from './pages/OrderHistoryPage/OrderHistoryPage';
 import DeliveryAddressPage from './pages/DeliveryAddressPage/DeliveryAddressPage';
 import DiscountsBonusesPage from './pages/DiscountsBonusesPage/DiscountsBonusesPage';
 import ContactInfoPage from './pages/ContactInfoPage/ContactInfoPage';
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(() => {
@@ -65,6 +66,15 @@ function App() {
               element={<RegisterPage onLogin={handleLogin} />}
             />
             <Route path="/cart" element={<CartPage />} />
+            <Route
+              path="/checkout"
+              element={
+                <CheckoutPage
+                  currentUser={currentUser}
+                  onLogout={handleLogout}
+                />
+              }
+            />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/about" element={<AboutStorePage />} />
