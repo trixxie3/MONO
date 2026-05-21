@@ -5,6 +5,13 @@ export default function ProductCard({ product }) {
   const navigate = useNavigate();
 
   const handleAddToCart = () => {
+    const currentUser = localStorage.getItem('currentUser');
+
+    if (!currentUser) {
+      navigate('/account');
+      return;
+    }
+
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const currentItem = cartItems.find((item) => item.id === product.id);
 

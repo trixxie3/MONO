@@ -59,7 +59,9 @@ export default function CheckoutPage({ currentUser, onLogout }) {
                 <input
                   className="checkout__input"
                   type="text"
-                  defaultValue="г Санкт-Петербург"
+                  defaultValue={
+                    currentUser?.deliveryAddress?.city || 'г Санкт-Петербург'
+                  }
                   required
                 />
               </label>

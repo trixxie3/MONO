@@ -16,7 +16,6 @@ import DiscountsBonusesPage from './pages/DiscountsBonusesPage/DiscountsBonusesP
 import ContactInfoPage from './pages/ContactInfoPage/ContactInfoPage';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
-import PaymentPage from './pages/PaymentPage/PaymentPage';
 import BlogPage from './pages/BlogPage/BlogPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
@@ -36,6 +35,20 @@ function App() {
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem('currentUser');
+  };
+
+  const handleUpdateUser = (updatedUser) => {
+    const currentUserEmail = currentUser?.email;
+
+    setCurrentUser(updatedUser);
+    localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const updatedUsers = users.map((user) =>
+      user.email === currentUserEmail ? updatedUser : user,
+    );
+
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
   };
 
   return (
@@ -59,13 +72,26 @@ function App() {
               <Route path="order-history" element={<OrderHistoryPage />} />
               <Route
                 path="delivery-address"
-                element={<DeliveryAddressPage />}
+                element={
+                  <DeliveryAddressPage
+                    currentUser={currentUser}
+                    onUpdateUser={handleUpdateUser}
+                  />
+                }
               />
               <Route
                 path="discounts-bonuses"
                 element={<DiscountsBonusesPage />}
               />
-              <Route path="contact-info" element={<ContactInfoPage />} />
+              <Route
+                path="contact-info"
+                element={
+                  <ContactInfoPage
+                    currentUser={currentUser}
+                    onUpdateUser={handleUpdateUser}
+                  />
+                }
+              />
             </Route>
             <Route
               path="/register"
@@ -88,7 +114,6 @@ function App() {
             <Route path="/about" element={<AboutStorePage />} />
             <Route path="/contacts" element={<ProfilePage />} />
             <Route path="/delivery" element={<DeliveryPage />} />
-            <Route path="/payment" element={<PaymentPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/blog" element={<BlogPage />} />
           </Routes>
