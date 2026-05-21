@@ -1,0 +1,27 @@
+@use '../../styles/variables' as *;
+
+.breadcrumbs {
+  margin-bottom: 30px;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &:not(:last-child)::after {
+      content: '-';
+      color: $dark-gray;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    color: $dark-gray;
+  }
+}

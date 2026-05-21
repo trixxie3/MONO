@@ -1,7 +1,7 @@
 import { products } from '../../data/products';
 import { products2 } from '../../data/products2';
 import './_SpecialProducts.scss';
-import Card from '../ProductCard/ProductCard';
+import ProductCard from '../ProductCard/ProductCard';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -36,7 +36,7 @@ export default function SpecialProducts() {
           <ul className="special-products__list">
             {currentProducts.map((product) => (
               <li className="special-products__item" key={product.id}>
-                <Card product={product} />
+                <ProductCard product={product} />
               </li>
             ))}
           </ul>
