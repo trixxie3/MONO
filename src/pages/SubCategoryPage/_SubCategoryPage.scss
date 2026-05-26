@@ -1,0 +1,110 @@
+@use '../../styles/variables' as *;
+
+.subcategory-page {
+  padding: 10px 0 70px;
+
+  &__wrap {
+    max-width: 752px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin-bottom: 44px;
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  &__products-wrap {
+    width: 100%;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $accent;
+    font-size: 16px;
+  }
+
+  &__control-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__sort {
+    position: relative;
+  }
+
+  &__sort-list {
+    position: absolute;
+    z-index: 5;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 168px;
+    padding: 8px 0;
+    background-color: white;
+    box-shadow: 0 6px 22px rgba(28, 39, 56, 0.1);
+  }
+
+  &__sort-option {
+    width: 100%;
+    padding: 7px 14px;
+    color: $accent;
+    font-size: 13px;
+    line-height: 1.25;
+    text-align: left;
+
+    &:hover,
+    &--active {
+      background-color: $gray;
+    }
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 40px 34px;
+  }
+
+  @media (max-width: 900px) {
+    &__wrap {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 760px) {
+    &__products {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 34px 24px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    padding-bottom: 42px;
+
+    &__title {
+      margin-bottom: 28px;
+      font-size: 26px;
+    }
+
+    &__controls {
+      margin-bottom: 34px;
+    }
+
+    &__sort-option {
+      font-size: 14px;
+    }
+
+    &__products {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px 18px;
+    }
+  }
+}

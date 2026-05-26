@@ -111,7 +111,14 @@ function App() {
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/category" element={<Navigate to="/category/1" replace />} />
             <Route path="/category/:categoryId" element={<CategoryPage />} />
-            <Route path="/subcategory" element={<SubCategoryPage />} />
+            <Route
+              path="/subcategory"
+              element={<Navigate to="/category/1/subcategory/1" replace />}
+            />
+            <Route
+              path="/category/:categoryId/subcategory/:subcategoryId"
+              element={<SubCategoryPage />}
+            />
             <Route path="/about" element={<AboutStorePage />} />
             <Route path="/contacts" element={<ProfilePage />} />
             <Route path="/delivery" element={<DeliveryPage />} />

@@ -402,7 +402,7 @@ export default function CategoryPage() {
                       key={subcategory.id}
                     >
                       <Link
-                        to="/subcategory"
+                        to={`/category/${currentCategory.id}/subcategory/${subcategory.id}`}
                         className="category-page__subcategory-link"
                       >
                         <img

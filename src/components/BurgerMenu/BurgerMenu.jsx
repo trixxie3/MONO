@@ -77,7 +77,7 @@ export default function BurgerMenu({ isOpen, setIsBurgerOpen }) {
                         <li className="accordion__item-wrap">
                           <BurgerLink
                             className="accordion__item"
-                            to="/subcategory"
+                            to={`/category/${item}/subcategory/1`}
                           >
                             Подкатегория 1
                           </BurgerLink>
@@ -86,7 +86,7 @@ export default function BurgerMenu({ isOpen, setIsBurgerOpen }) {
                         <li className="accordion__item-wrap">
                           <BurgerLink
                             className="accordion__item"
-                            to="/subcategory"
+                            to={`/category/${item}/subcategory/2`}
                           >
                             Подкатегория 2
                           </BurgerLink>
@@ -95,7 +95,7 @@ export default function BurgerMenu({ isOpen, setIsBurgerOpen }) {
                         <li className="accordion__item-wrap">
                           <BurgerLink
                             className="accordion__item"
-                            to="/subcategory"
+                            to={`/category/${item}/subcategory/3`}
                           >
                             Подкатегория 3
                           </BurgerLink>
