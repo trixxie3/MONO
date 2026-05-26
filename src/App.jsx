@@ -16,11 +16,11 @@ import DiscountsBonusesPage from './pages/DiscountsBonusesPage/DiscountsBonusesP
 import ContactInfoPage from './pages/ContactInfoPage/ContactInfoPage';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
-import BlogPage from './pages/BlogPage/BlogPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
 import SubCategoryPage from './pages/SubCategoryPage/SubCategoryPage';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
+import PaymentPage from './pages/PaymentPage/PaymentPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(() => {
@@ -126,8 +126,8 @@ function App() {
             <Route path="/about" element={<AboutStorePage />} />
             <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/delivery" element={<DeliveryPage />} />
+            <Route path="/payment" element={<PaymentPage />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/blog" element={<BlogPage />} />
           </Routes>
         </main>
         <Footer />

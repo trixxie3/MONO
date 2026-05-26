@@ -16,19 +16,6 @@
     font-weight: 600;
   }
 
-  &__favorite {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    color: $dark-gray;
-  }
-
-  &__favorite-icon {
-    width: 26px;
-    height: 26px;
-  }
-
   &__image-link {
     display: block;
     margin-bottom: 14px;

@@ -148,12 +148,6 @@ export default function BurgerMenu({ isOpen, setIsBurgerOpen }) {
                 Личный кабинет
               </BurgerLink>
             </li>
-
-            <li className="burger-menu__item">
-              <BurgerLink className="burger-menu__link" to="/blog">
-                Блог
-              </BurgerLink>
-            </li>
           </ul>
         </nav>
 

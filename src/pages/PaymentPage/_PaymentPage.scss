@@ -1,6 +1,6 @@
 @use '../../styles/variables' as *;
 
-.delivery-page {
+.payment-page {
   padding: 10px 0 70px;
 
   &__wrap {
@@ -32,6 +32,11 @@
   &__content ol {
     margin: 0 0 24px 48px;
     padding: 0;
+  }
+
+  &__content a {
+    color: $accent;
+    text-decoration: underline;
   }
 
   @media (max-width: 760px) {
