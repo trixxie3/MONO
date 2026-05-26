@@ -261,7 +261,10 @@ export default function CatalogPage() {
             <ul className="catalog-page__categories">
               {categories.map((category) => (
                 <li className="catalog-page__category" key={category.id}>
-                  <Link to="/category" className="catalog-page__category-link">
+                  <Link
+                    to={`/category/${category.id}`}
+                    className="catalog-page__category-link"
+                  >
                     <img
                       className="catalog-page__category-img"
                       src={category.image}

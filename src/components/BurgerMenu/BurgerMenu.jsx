@@ -49,7 +49,10 @@ export default function BurgerMenu({ isOpen, setIsBurgerOpen }) {
                       setOpenAccordion(openAccordion === index ? null : index)
                     }
                   >
-                    <BurgerLink className="accordion__title" to="/category">
+                    <BurgerLink
+                      className="accordion__title"
+                      to={`/category/${item}`}
+                    >
                       Категория {item}
                     </BurgerLink>
 
