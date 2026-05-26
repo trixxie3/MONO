@@ -4,17 +4,49 @@
   width: 100%;
   position: relative;
 
+  &__badge {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding: 3px 7px;
+    color: white;
+    background-color: #0875d1;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  &__favorite {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    color: $dark-gray;
+  }
+
+  &__favorite-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  &__image-link {
+    display: block;
+    margin-bottom: 14px;
+  }
+
   &__image {
     width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    margin-bottom: 10px;
+    aspect-ratio: 1 / 1.15;
+    object-fit: contain;
   }
 
   &__title {
+    display: block;
     font-size: 16px;
     font-weight: 400;
-    margin-bottom: 10px;
+    line-height: 1.25;
+    min-height: 40px;
+    margin-bottom: 12px;
     color: $accent;
   }
 
@@ -22,6 +54,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 14px;
+  }
+
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__old-price {
+    font-size: 15px;
+    color: $dark-gray;
+    text-decoration: line-through;
   }
 
   &__price {
@@ -33,6 +78,8 @@
   &__btn {
     width: 40px;
     height: 40px;
+    flex: 0 0 40px;
+    border-radius: 50%;
     background-color: $accent;
     display: flex;
     align-items: center;
@@ -41,7 +88,7 @@
   }
 
   &__btn-icon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
   }
 }

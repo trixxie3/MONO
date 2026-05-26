@@ -30,6 +30,29 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="product-card">
+      {product.badge && (
+        <span className="product-card__badge">{product.badge}</span>
+      )}
+      <button
+        className="product-card__favorite"
+        type="button"
+        aria-label="Добавить в избранное"
+      >
+        <svg
+          className="product-card__favorite-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+          />
+        </svg>
+      </button>
       <Link className="product-card__image-link" to={`/product/${product.id}`}>
         <img
           className="product-card__image"
@@ -41,7 +64,12 @@ export default function ProductCard({ product }) {
         {product.title}
       </Link>
       <div className="product-card__wrap">
-        <p className="product-card__price">{product.price}</p>
+        <div className="product-card__prices">
+          {product.oldPrice && (
+            <p className="product-card__old-price">{product.oldPrice}</p>
+          )}
+          <p className="product-card__price">{product.price}</p>
+        </div>
         <button
           className="product-card__btn"
           type="button"
