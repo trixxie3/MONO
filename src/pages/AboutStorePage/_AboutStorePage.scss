@@ -1,0 +1,57 @@
+@use '../../styles/variables' as *;
+
+.about-store-page {
+  padding: 10px 0 70px;
+
+  &__wrap {
+    max-width: 1528px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  &__content {
+    max-width: 1320px;
+    color: $accent;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  &__content p {
+    margin-bottom: 22px;
+  }
+
+  &__content strong {
+    font-weight: 700;
+  }
+
+  &__content ul {
+    list-style: disc;
+    margin: 0 0 24px 28px;
+    padding: 0;
+  }
+
+  &__content a {
+    color: $accent;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 760px) {
+    &__content {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    padding-bottom: 42px;
+
+    &__title {
+      font-size: 26px;
+    }
+  }
+}
