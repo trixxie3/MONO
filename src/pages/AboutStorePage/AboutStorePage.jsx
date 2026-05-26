@@ -21,6 +21,7 @@ export default function AboutStorePage() {
             <p>
               <strong>Например:</strong>
             </p>
+            <p>----</p>
             <p>
               <strong>
                 Интернет-магазин "MyShop.ru" - лучшие товары по низким ценам!

@@ -20,6 +20,7 @@ import BlogPage from './pages/BlogPage/BlogPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
 import SubCategoryPage from './pages/SubCategoryPage/SubCategoryPage';
+import ContactsPage from './pages/ContactsPage/ContactsPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(() => {
@@ -109,7 +110,10 @@ function App() {
             />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="/category" element={<Navigate to="/category/1" replace />} />
+            <Route
+              path="/category"
+              element={<Navigate to="/category/1" replace />}
+            />
             <Route path="/category/:categoryId" element={<CategoryPage />} />
             <Route
               path="/subcategory"
@@ -120,7 +124,7 @@ function App() {
               element={<SubCategoryPage />}
             />
             <Route path="/about" element={<AboutStorePage />} />
-            <Route path="/contacts" element={<ProfilePage />} />
+            <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/delivery" element={<DeliveryPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/blog" element={<BlogPage />} />
